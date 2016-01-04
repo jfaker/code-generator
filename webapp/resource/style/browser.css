@@ -1,0 +1,50 @@
+div.outline-view{height: 360px; border: 1px solid #93b7dc; overflow: auto;}
+div.outline-view ul{list-style: none;}
+
+div.outline-view ul li{
+    float: left;
+    width: 84px;
+    height: 112px;
+    margin: 20px 0px 10px 20px;
+    list-style: none;
+}
+
+div.outline-view ul li div.box{
+    width: 64px;
+    height: 64px;
+    padding: 2px;
+    border: 2px solid #bdcfec;
+    background-color: #dfe8f6;
+    line-height: 64px;
+    text-align: center;
+}
+
+div.outline-view ul li div.box:hover{border: 2px solid #316ac5;}
+
+div.outline-view ul li.active div.box{
+    border: 2px solid #316ac5;
+}
+
+div.outline-view ul li div.box img
+    width: 32px;
+    height: 32px;
+}
+
+div.outline-view ul li div.box img.icon{
+    width: 32px;
+    height: 32px;
+}
+
+div.outline-view ul li div.filename{
+    width: 64px;
+    padding-top: 4px;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-all;
+    word-wrap: break-word;
+    cursor: default;
+}
+
+div.buttons{clear: both;
+    padding: 20px 20px 20px 0px; border: 1px solid #93b7dc; text-align: right; background-color: #cbdcee;
+}

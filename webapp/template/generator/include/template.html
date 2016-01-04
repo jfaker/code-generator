@@ -1,0 +1,38 @@
+<table id="TemplateTable" class="gridview" style="width: 100%; margin-top: -1px; margin-left: -1px;">
+    <tr class="thead">
+        <td class="w60 center"><a href="javascript:void(0)" onclick="Util.check('templateCheckbox', this)">全 选</a></td>
+        <td class="center">模 板</td>
+    </tr>
+    <c:set var="j" value="1"/>
+    <c:forEach items="${templates}" var="template" varStatus="status">
+    <tr jso="${HtmlUtil.encode(JsonUtil.toJson(template))}">
+        <td class="w80 center"><img src="/resource/style/default/images/minus.gif" onclick="UI.toggle(this)"/><input type="checkbox" name="templateCheckbox" value="1" <c:if test="${template.enabled}">checked="true"</c:if>/></td>
+        <td><p style="height: 26px; line-height: 26px;">模板文件：<input type="text" style="width: 540px;" value="${template.template}"/></p>
+            <p style="height: 26px; line-height: 26px;">输出路径：<input type="text" style="width: 540px;" value="${template.outputPath}"/></p>
+        </td>
+    </tr>
+    <tr>
+        <td class="w80 center">&nbsp;</td>
+        <td class="left">
+            <c:if test="${util.notEmpty(template.parameters)}">
+            <table class="table2" style="margin: 4px 4px 4px 0px; width: 640px;">
+                <c:set var="k" value="1"/>
+                <tr>
+                    <td class="w120 center gray bb">参数名</td>
+                    <td class="center gray bb">参数值</td>
+                </tr>
+                <c:forEach items="${template.parameters.values()}" var="parameter" varStatus="status">
+                <tr jso="${HtmlUtil.encode(JsonUtil.toJson(parameter))}">
+                    <td class="w120 right gray bb">${parameter.name}:&nbsp;</td>
+                    <td class="gray"><input type="text" name="v${j * k}" class="textfield w400" value="${parameter.value}"/></td>
+                </tr>
+                <c:set var="k" value="${k + 1}"/>
+                </c:forEach>
+            </table>
+            </c:if>
+            <c:if test="${util.isEmpty(template.parameters)}">无</c:if>
+        </td>
+    </tr>
+    <c:set var="j" value="${j + 1}"/>
+    </c:forEach>
+</table>

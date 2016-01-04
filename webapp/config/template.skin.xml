@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template-config>
+    <!-- model template -->
+    <template name="modelTemplate" path="/skin/model.jsp" output="/java/com/skin/forum/model/${table.className}.java" enabled="true">
+        <parameter name="packageName" value="com.skin.forum.model" description=""/>
+    </template>
+
+    <!-- dao template -->
+    <template name="daoTemplate" path="/skin/dao.jsp" output="/java/com/skin/forum/dao/${table.className}Dao.java" enabled="false">
+        <parameter name="packageName" value="com.skin.forum.dao" description=""/>
+    </template>
+
+    <!-- manager template -->
+    <template name="managerTemplate" path="/skin/manager.jsp" output="/java/com/skin/forum/manager/${table.className}Manager.java" enabled="false">
+        <parameter name="packageName" value="com.skin.forum.manager" description=""/>
+    </template>
+
+    <!-- helper template -->
+    <template name="helpTemplate" path="/skin/helper.jsp" output="/java/com/skin/forum/helper/${table.className}Helper.java" enabled="false"/>
+</template-config>

@@ -1,0 +1,62 @@
+.tabview{
+    height: 28px;
+    border: 0px solid #ffffff;
+    background-image: url("../images/tabline.gif");
+}
+
+.tabview ul{
+    margin: 0px;
+    padding: 0px 0px 0px 4px;
+    list-style: none;
+}
+
+.tabview ul li{
+    float: left;
+}
+
+.tabview ul .tabshow{
+    width: 100px;
+    height: 28px;
+    border: 0px solid #eeeeee;
+    background-image: url("../images/tabshow.gif");
+    background-repeat: no-repeat;
+    line-height: 28px;
+    font-size: 12px;
+    font-weight: bold;
+    text-align: center;
+    color: #15428b;
+    cursor: default;
+}
+
+.tabview ul .tabhide{
+    width: 100px;
+    height: 28px;
+    border: 0px solid #666666;
+    background-image: url("../images/tabhide.gif");
+    background-repeat: no-repeat;
+    line-height: 28px;
+    font-size: 12px;
+    text-align: center;
+    color: #416aa3;
+    cursor: default;
+}
+
+.tabpanel{
+    /*
+    padding: 4px;
+    border-top: 0px solid #7f9db9;
+    border-left: 1px solid #7f9db9;
+    border-right: 1px solid #7f9db9;
+    border-bottom: 1px solid #7f9db9;
+    */
+}
+
+.tabcontent{
+    border: 10px solid #deecfd;
+}
+
+.tabcontentpanel{
+    border: 1px solid #8db2e3;
+    background-color: #ffffff;
+    overflow: auto;
+}

@@ -1,0 +1,26 @@
+div.scrollpage{
+    padding-left: 10px; height: 30px;
+    border-top: 1px solid #abadb3;
+    /* border-bottom: 1px solid #93b7dc; */
+    border-bottom: 1px solid #efefef;
+    background: transparent url(../images/pagebar.gif) repeat scroll 0px -30px;
+    overflow: hidden;
+}
+
+a.page{font-size: 12px; color: #0000FF;}
+div.scrollpage div{float: left; height: 30px;}
+div.scrollpage div.separator{float: left; width: 12px; background: transparent url(../images/pagebar.gif) no-repeat scroll -134px 0px;}
+div.scrollpage div.first{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll 0px 0px;}
+div.scrollpage div.first_disabled{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -16px 0px;}
+div.scrollpage div.prev{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -32px 0px;}
+div.scrollpage div.prev_disabled{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -48px 0px;}
+div.scrollpage div.next{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -64px 0px;}
+div.scrollpage div.next_disabled{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -80px 0px;}
+div.scrollpage div.last{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -96px 0px;}
+div.scrollpage div.last_disabled{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -112px 0px;}
+div.scrollpage div.refresh{width: 22px; background: transparent url(../images/pagebar.gif) no-repeat scroll -146px 0px;}
+div.scrollpage div.pagenum{width: 72px; height: 24px; padding-top: 6px; padding-left: 6px;}
+div.scrollpage div.pagesize{width: 40px; height: 24px; padding-top: 6px; padding-left: 0px;}
+div.scrollpage div.pagesize select{width: 40px; height: 20px; margin: 0px; padding: 0px;}
+div.scrollpage div.pagenum input.pagenum{width: 30px; border: 1px solid #c0c0c0; text-align: center;}
+div.scrollpage div.pageinfo{height: 22px; padding-top: 8px; padding-left: 10px;}
