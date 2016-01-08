@@ -381,56 +381,7 @@ jQuery(function() {
             border-bottom: 0px solid #99bbe8;
             border-right: 1px solid #99bbe8;
             background-color: #dfe8f6;">
-            <textarea id="source" class="text" style="width: 888px; height: 60px;" placeholder="请输入SQL语句">
-create table tv_app(
-    id bigint(20) unsigned not null auto_increment comment '主键',
-    name varchar(64) NOT NULL COMMENT '应用名称, 不可修改',
-    display_name varchar(64) DEFAULT NULL COMMENT '应用的显示名称，用户可以修改',
-    abbr varchar(32) not null comment '应用名称首字母',
-    type int(11) not null comment '应用类型',
-    is_game int(11) not null default 0 comment '是否游戏',
-    is_sarft int(11) not null default 0 comment '是否运营商',
-    tag varchar(128) not null comment '应用标签，多个使用空格分隔',
-    summary varchar(2048) default null comment '应用简介',
-    dev_nick varchar(64) default null COMMENT '开发者昵称',
-    pay_type int(11) not null default '0' comment '付费类型, 0: 免费, 1: 内置收费, 2: 付费下载',
-    price int(11) not null default '0' comment '价格',
-    top_app_id bigint(20) unsigned default '0' comment 'top的app_id',
-    app_key varchar(64) not null comment 'app key',
-    app_secret varchar(128) comment 'app secret',
-    baodian_secret varchar(128) default null comment '宝点的secret',
-    status int(11) not null default '1' comment '状态 1：开发中 2：审核中 3：审核通过 4：审核不通过 5：撤销',
-    apk_url varchar(255) default null comment '应用下载地址（母包）',
-    ver_name varchar(64) default null comment '版本名称',
-    ver_code int(11) default null comment '版本编号',
-    package_name varchar(128) default null comment '应用包名',
-    package_size varchar(128) default null comment '应用包大小',
-    md5 varchar(128) default null comment 'md5',
-    sha1 varchar(128) default null comment 'sha1',
-    channel_ids varchar(1024) default null comment '下发渠道',
-    tb_uid bigint(20) not null comment '淘宝用户id',
-    deg_uid bigint(20) not null comment '数娱用户id',
-    wlc_status varchar(32) default '0' comment '无量尺扫描状态',
-    mtl_status varchar(32) default '0' comment '摩天轮自动测试结果',
-    online_time date default null comment '期望的上线时间',
-    sdk_version varchar(32) default null comment 'sdk版本',
-    tech_person varchar(32) default null comment '技术接口人',
-    tech_person_phone varchar(32) default null comment '技术接口人电话',
-    biz_person varchar(32) default null comment '客服接口人',
-    biz_person_phone varchar(32) default null comment '客服接口人电话',
-    current_step int(11) default '0' comment '当前第几步, 记录用户填写步骤',
-    contract_status int(11) default '0' comment '合同签署状态, 0-未签署合同, 1-已签署合同',
-    operator_id bigint(20) default null comment '审核者id',
-    operator_name varchar(64) default null comment '审核者',
-    data_from varchar(64) default 'openplatform' comment '数据来源，tvappstore是导的数据',
-    gmt_create datetime not null comment '创建时间',
-    gmt_modified datetime not null comment '更新时间',
-    primary key (id),
-    unique key index_name (name),
-    unique key index_appkey (app_key),
-    key index_abbr (abbr)
-) engine=innodb default charset=utf8 comment='开发者应用表';
-            </textarea>
+            <textarea id="source" class="text" style="width: 888px; height: 60px;" placeholder="请输入SQL语句"></textarea>
             <textarea id="result" class="text" style="width: 888px; height: 60px;" readonly="true"></textarea>
         </div>
         <div class="form-panel">

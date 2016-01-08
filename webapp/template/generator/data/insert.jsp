@@ -361,7 +361,7 @@ jQuery(function() {
             border-bottom: 0px solid #99bbe8;
             border-right: 1px solid #99bbe8;
             background-color: #dfe8f6;">
-            <textarea id="source" class="text" style="width: 888px; height: 60px;" placeholder="请输入SQL语句">insert into bd_app(id, app_str_id, name, company_id, profit_rate, alipay_account_id, alipay_merchant_id, sec_key, app_exe_signature_str, properties, options, gmt_create, gmt_modified, last_operator, operation_type, feature_option) values(3, '21720823', 'BD-SDK-TEST', 1, '0.7', '2088011177543483', '2088011177543483', '1539fad7784494515ff180c4432fdb24', '', '', 3, '2015-03-19 14:54:00', '2015-03-19 14:54:00', '', 1, 31);</textarea>
+            <textarea id="source" class="text" style="width: 888px; height: 60px;" placeholder="请输入SQL语句"></textarea>
             <textarea id="result" class="text" style="width: 888px; height: 60px;" readonly="true"></textarea>
         </div>
         <div class="form-panel">
