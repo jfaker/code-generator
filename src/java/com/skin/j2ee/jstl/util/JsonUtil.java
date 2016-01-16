@@ -19,10 +19,10 @@ package com.skin.j2ee.jstl.util;
  */
 public class JsonUtil
 {
-	/***
-	 * @param value
-	 * @return String
-	 */
+    /***
+     * @param value
+     * @return String
+     */
     public String stringify(Object value)
     {
         return com.skin.util.JsonUtil.stringify(value);

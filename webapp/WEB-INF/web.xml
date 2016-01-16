@@ -34,6 +34,10 @@
             <param-name>home</param-name>
             <param-value>contextPath:/template</param-value>
         </init-param>
+        <init-param>
+            <param-name>prefix</param-name>
+            <param-value>/template</param-value>
+        </init-param>
     </filter>
 
     <!-- filter mapping -->
