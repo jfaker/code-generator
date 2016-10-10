@@ -666,7 +666,7 @@ Response.success = function(result, success){
         return false;
     }
 
-    if(result.code == 0){
+    if(result.code == 0 || result.status == 200){
         if(success != null){
             success(result.value);
         }
