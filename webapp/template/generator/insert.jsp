@@ -418,7 +418,7 @@ jQuery(function() {
 </div>
 <script type="text/javascript">
 //<![CDATA[
-var table = "${JsonUtil.stringify(table)}";
+var table = <c:out value="${JsonUtil.stringify(table)}"/>;
 //]]>
 </script>
 </body>

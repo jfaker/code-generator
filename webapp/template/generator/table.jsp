@@ -196,7 +196,7 @@ function exportData(){
             </h4>
         </div>
         <div class="panel-content">
-            <div class="form-panel" style="width: 600px; height: 400px; overflow: auto; cursor: default;">
+            <div class="form-panel" style="width: 840px; height: 480px; overflow: auto; cursor: default;">
                 <table class="table" style="width: 800px;">
                     <tr class="thead">
                         <td class="cc w60 bb">index</td>
@@ -208,11 +208,12 @@ function exportData(){
                     <tr title="${column.typeName}: ${column.remarks}">
                         <td class="cc bb">${status.index + 1}</td>
                         <td class="bb">${column.columnName}</td>
-                        <td>${column.columnName}(${column.precision})</td>
+                        <td>${column.typeName}(${column.precision})</td>
                         <td>${column.remarks}</td>
                     </tr>
                     </c:forEach>
                 </table>
+                <div style="height: 30px;"></div>
             </div>
         </div>
         <div class="status-bar"></div>
