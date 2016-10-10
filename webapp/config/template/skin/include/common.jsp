@@ -18,12 +18,16 @@
 
 <c:set var="managerClassName" value="${className}Manager"/>
 <c:set var="managerPackageName" value="${managerTemplate.parameters.packageName.value}"/>
-<c:set var="managerVariableName" value="${variable}Manager"/>
+<c:set var="managerVariableName" value="${variableName}Manager"/>
+
+<c:set var="serviceClassName" value="${className}Service"/>
+<c:set var="servicePackageName" value="${serviceTemplate.parameters.packageName.value}"/>
+<c:set var="serviceVariableName" value="${variableName}Service"/>
 
 <c:if test="${util.notNull(actionTemplate)}">
     <c:set var="actionClassName" value="${className}Action"/>
     <c:set var="actionPackageName" value="${actionTemplate.parameters.packageName.value}"/>
-    <c:set var="actionVariableName" value="${variable}Action"/>
+    <c:set var="actionVariableName" value="${variableName}Action"/>
 </c:if>
 
 <c:set var="primaryKeyColumnName" value="${primaryKeyColumnName}"/>
@@ -47,3 +51,4 @@
 
 <c:set var="columns" value="${table.listColumns()}"/>
 <c:set var="columnsSize" value="${columns.size()}"/>
+<c:set var="author" value="xuesong.net"/>

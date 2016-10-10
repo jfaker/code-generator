@@ -11,16 +11,11 @@
  */
 package ${managerPackageName};
 
-import java.sql.Connection;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import ${modelPackageName}.${modelClassName};
-import ${daoPackageName}.${daoClassName};
-import com.skin.cache.Cache;
-import com.skin.cache.CacheFactory;
-import com.skin.cache.Key;
+import ${servicePackageName}.${serviceClassName};
 
 /**
  * <p>Title: ${managerClassName}</p>
@@ -29,120 +24,63 @@ import com.skin.cache.Key;
  * @author ${author}
  * @version 1.0
  */
-public class ${managerClassName}
-{
-    private Cache cache = null;
-    private ${daoClassName} ${daoVariableName} = null;
-    public static final String CACHE_PREFIX = "${variable}";
-    public static final int EXPIRES = 600;
+public class ${managerClassName} {
+    private ${serviceClassName} ${serviceVariableName} = null;
 
     /**
-     * @param connection
+     *
      */
-    public ${managerClassName}(Connection connection)
-    {
-        this.${daoVariableName} = new ${daoClassName}(connection);
-        this.cache = CacheFactory.getCache();
+    public ${managerClassName}() {
+        this.${serviceVariableName} = new ${serviceClassName}();
     }
 
     /**
      * @param ${primaryKeyVariableName}
      * @return ${modelClassName}
      */
-    public ${modelClassName} getById(${primaryKeyJavaTypeName} ${primaryKeyVariableName})
-    {
-        String key = Key.build(CACHE_PREFIX, ${primaryKeyVariableName});
-        ${modelClassName} ${modelVariableName} = (${modelClassName})(this.cache.getCache(key));
-
-        if(${modelVariableName} == null)
-        {
-            ${modelVariableName} = this.get${daoClassName}().getById(${primaryKeyVariableName});
-
-            if(${modelVariableName} != null)
-            {
-                this.cache.setCache(key, EXPIRES, ${modelVariableName});
-            }
-        }
-
-        return ${modelVariableName};
+    public ${modelClassName} getById(${primaryKeyJavaTypeName} ${primaryKeyVariableName}) {
+        return this.${serviceVariableName}.getById(${primaryKeyVariableName});
     }
 
     /**
      * @param ${modelVariableName}
      * @return int
      */
-    public int create(${modelClassName} ${modelVariableName})
-    {
-        return this.get${daoClassName}().create(${modelVariableName});
+    public int create(${modelClassName} ${modelVariableName}) {
+        return this.${serviceVariableName}.create(${modelVariableName});
     }
 
     /**
      * @param ${modelVariableName}
      * @return int
      */
-    public int update(${modelClassName} ${modelVariableName})
-    {
-        return this.get${daoClassName}().update(${modelVariableName});
+    public int update(${modelClassName} ${modelVariableName}) {
+        return this.${serviceVariableName}.update(${modelVariableName});
+    }
+
+    /**
+     * @param ${primaryKeyVariableName}
+     * @param params
+     * @return int
+     */
+    public int update(${primaryKeyJavaTypeName} ${primaryKeyVariableName}, Map<String, Object> params) {
+        return this.${serviceVariableName}.update(${primaryKeyVariableName}, params);
     }
 
     /**
      * @param pageNum
      * @param pageSize
      * @return List<${modelClassName}>
-     * @throws SQLException
      */
-    public List<${modelClassName}> list(int pageNum, int pageSize)
-    {
-        return this.get${daoClassName}().list(pageNum, pageSize);
+    public List<${modelClassName}> list(int pageNum, int pageSize) {
+        return this.${serviceVariableName}.list(pageNum, pageSize);
     }
 
     /**
      * @param ${primaryKeyVariableName}
      * @return int
      */
-    public int delete(${primaryKeyJavaTypeName} ${primaryKeyVariableName})
-    {
-        return this.get${daoClassName}().delete(${primaryKeyVariableName});
-    }
-
-    /**
-     * @param id
-     * @return String
-     */
-    public String getCacheKey(${primaryKeyJavaTypeName} id)
-    {
-        return Key.build(CACHE_PREFIX, id);
-    }
-
-    /**
-     * @return the cache
-     */
-    public Cache getCache()
-    {
-        return this.cache;
-    }
-
-    /**
-     * @param cache the cache to set
-     */
-    public void setCache(Cache cache)
-    {
-        this.cache = cache;
-    }
-
-    /**
-     * @return the ${daoVariableName}
-     */
-    public ${daoClassName} get${daoClassName}()
-    {
-        return this.${daoVariableName};
-    }
-
-    /**
-     * @param ${daoVariableName} the ${daoVariableName} to set
-     */
-    public void set${daoClassName}(${daoClassName} ${daoVariableName})
-    {
-        this.${daoVariableName} = ${daoVariableName};
+    public int delete(${primaryKeyJavaTypeName} ${primaryKeyVariableName}) {
+        return this.${serviceVariableName}.delete(${primaryKeyVariableName});
     }
 }
