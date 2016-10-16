@@ -22,6 +22,10 @@ import java.util.Set;
  * @version 1.0
  */
 public class TableType {
+    /**
+     * @param args
+     * @return String[]
+     */
     public static String[] getTypes(String[] args) {
         String[] types = null;
 
@@ -35,7 +39,7 @@ public class TableType {
                     map.put(type, "1");
                 }
             }
-
+            
             if(map.size() > 0) {
                 Set<String> set = map.keySet();
                 types = new String[set.size()];
@@ -49,7 +53,6 @@ public class TableType {
         if(types == null || types.length < 1) {
             types = new String[]{"TABLE"};
         }
-
         return types;
     }
 }

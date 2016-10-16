@@ -1,13 +1,3 @@
-/*
- * $RCSfile: InsertAction.java,v $$
- * $Revision: 1.1 $
- * $Date: 2013-10-21 $
- *
- * Copyright (C) 2008 Skin, Inc. All rights reserved.
- *
- * This software is the proprietary information of Skin, Inc.
- * Use is subject to license terms.
- */
 package com.skin.generator.action;
 
 import java.io.IOException;
@@ -15,20 +5,37 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
-import com.skin.database.sql.Record;
-import com.skin.database.sql.parser.InsertParser;
+import com.skin.generator.database.Entry;
+import com.skin.generator.database.Record;
+import com.skin.generator.database.sql.parser.InsertParser;
 import com.skin.j2ee.action.BaseAction;
 import com.skin.j2ee.annotation.UrlPattern;
 import com.skin.j2ee.util.JsonUtil;
 
 /**
- * <p>Title: InsertAction</p>
- * <p>Description: </p>
- * <p>Copyright: Copyright (c) 2006</p>
- * @author xuesong.net
+ * @author weixian
  * @version 1.0
  */
 public class InsertAction extends BaseAction {
+    /**
+     * @param args
+     */
+	public static void main(String[] args) {
+		String sql = "insert into bd_app(id, app_str_id, name, company_id, profit_rate, alipay_account_id, alipay_merchant_id, sec_key, app_exe_signature_str, properties, options, gmt_create, gmt_modified, last_operator, operation_type, feature_option) values(3, '21720823', 'BD-SDK-TEST', 1, '0.7', '2088011177543483', '2088011177543483', '1539fad7784494515ff180c4432fdb24', '', '', 3, '2015-03-19 14:54:00', '2015-03-19 14:54:00', '', 1, 31);";
+        InsertParser insertParser = new InsertParser();
+
+        try {
+			List<Record> recordList = insertParser.parse(sql);
+
+			for(Record record : recordList) {
+				List<Entry> entryList = record.getColumns();
+				System.out.println(entryList.size());
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+	
     /**
      * @throws IOException
      * @throws ServletException
@@ -38,16 +45,20 @@ public class InsertAction extends BaseAction {
         this.forward("/template/generator/data/insert.jsp");
     }
 
+    /**
+     * @throws IOException
+     * @throws ServletException
+     */
     @UrlPattern("/ajax/editor/insertParse.html")
-    public void parse() throws IOException {
+    public void parse() throws IOException, ServletException {
         String sql = this.getParameter("sql", "");
         InsertParser insertParser = new InsertParser();
         List<Record> recordList = insertParser.parse(sql);
 
         if(recordList != null && recordList.size() > 0) {
-            Record record = recordList.get(0);
-            JsonUtil.success(this.request, this.response, record);
+        	Record record = recordList.get(0);
+        	JsonUtil.success(this.request, this.response, record);
         }
-        JsonUtil.success(this.request, this.response, null);
+    	JsonUtil.success(this.request, this.response, null);
     }
 }

@@ -11,8 +11,6 @@ code-generator是一个java版的代码生成器，它具有以下功能：
     1. 修改 classpath:META-INF/conf/datasource.xml, 指定数据库连接, 可以建多个, 如果需要加载数据库驱动程序, 请将jar文件拷贝到/lib目录
     2. 修改 /webapp/config/template.xml, 修改模板路径, /webapp/template/skin下面的文件可能不适合具体的项目, 根据自己项目的特点修改模板
 
-使用中如果有问题, 请发邮件到: xuesong.net@163.com
-
 代码文件生成之后保存在/webapp/gen目录下面, 也可以使用Finder查看或者下载
 
 1. 单表生成
@@ -85,4 +83,4 @@ public class ${modelClassName} implements Serializable {
 </c:choose></c:forEach>
 ...
 
-下载地址: https://github.com/xuesong123
+下载地址: http://git.oschina.net/xuesong123/generator

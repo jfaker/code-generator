@@ -13,8 +13,8 @@ package com.skin.generator;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.skin.config.Getter;
-import com.skin.config.Parameter;
+import com.skin.generator.config.Getter;
+import com.skin.generator.config.Parameter;
 
 /**
  * <p>Title: Template</p>
@@ -30,6 +30,9 @@ public class Template extends Getter {
     private Map<String, Parameter> parameters;
     private boolean enabled;
 
+    /**
+     * default
+     */
     public Template() {
         this.parameters = new HashMap<String, Parameter>();
     }
@@ -85,9 +88,7 @@ public class Template extends Getter {
     }
 
     /**
-     * @param name
-     * @param value
-     * @param description
+     * @param parameter
      */
     public void setParameter(Parameter parameter) {
         this.parameters.put(parameter.getName(), parameter);
@@ -134,14 +135,14 @@ public class Template extends Getter {
     }
 
     /**
-     * @return the enabled
+     * @param enabled
      */
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
     /**
-     * @param enabled the enabled to set
+     * @return boolean
      */
     public boolean getEnabled() {
         return this.enabled;
@@ -157,7 +158,7 @@ public class Template extends Getter {
 
     /**
      * @param indent
-     * @return
+     * @return String
      */
     public String toString(String indent) {
         StringBuilder buffer = new StringBuilder();
@@ -178,15 +179,21 @@ public class Template extends Getter {
         return buffer.toString();
     }
 
+    /**
+     * @return String
+     */
     @Override
     public String getValue() {
         return null;
     }
 
+    /**
+     * @param name
+     * @return String
+     */
     @Override
     public String getValue(String name) {
         Parameter parameter = this.parameters.get(name);
-
         return (parameter != null ? parameter.getValue() : null);
     }
 }

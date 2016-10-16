@@ -14,9 +14,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.util.Collection;
-
-import com.skin.finder.FileType;
 
 /**
  * <p>Title: FileTypeTest</p>
@@ -26,15 +23,23 @@ import com.skin.finder.FileType;
  * @version 1.0
  */
 public class FileTypeTest {
+    /**
+     * @param args
+     */
     public static void main(String[] args) {
+        /*
         Collection<String> list = FileType.map.values();
 
         for(String type : list) {
             System.out.println("map.put(\"" + type + "\", \"" + type + "\");");
         }
         touch(new File("webapp/gen/webapp/files/1.1"));
+        */
     }
 
+    /**
+     * @param file
+     */
     public static void touch(File file) {
         OutputStream outputStream = null;
 

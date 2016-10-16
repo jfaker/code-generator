@@ -11,7 +11,7 @@
 
 package com.skin.generator;
 
-import com.skin.database.sql.Table;
+import com.skin.generator.database.Table;
 
 /**
  * <p>Title: Generator</p>

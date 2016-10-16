@@ -13,11 +13,11 @@ package test.com.skin.finder;
 import java.sql.Connection;
 import java.sql.SQLException;
 
-import com.skin.config.ConnectionConfig;
-import com.skin.config.ConnectionConfigFactory;
-import com.skin.database.handler.TableHandler;
-import com.skin.database.sql.Table;
-import com.skin.datasource.ConnectionManager;
+import com.skin.generator.database.Table;
+import com.skin.generator.database.handler.TableHandler;
+import com.skin.generator.datasource.ConnectionConfig;
+import com.skin.generator.datasource.ConnectionConfigFactory;
+import com.skin.generator.datasource.ConnectionManager;
 
 /**
  * <p>Title: TableHandlerTest</p>
@@ -32,7 +32,7 @@ public class TableHandlerTest {
     public static void main(String[] args) {
         Connection connection = null;
         ConnectionConfig connectionConfig = ConnectionConfigFactory.getByName("root:***@fmbak//localhost");
-
+        
         try {
             connection = ConnectionManager.getConnection(connectionConfig);
             TableHandler tableHandler = new TableHandler(connection);

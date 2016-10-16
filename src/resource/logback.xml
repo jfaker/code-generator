@@ -6,7 +6,7 @@
         </encoder>
     </appender>
     <appender name="fileout" class="ch.qos.logback.core.FileAppender">
-        <file>D:/logs/generator.log</file>
+        <file>/opt/resin/log/generator.log</file>
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
         </layout>

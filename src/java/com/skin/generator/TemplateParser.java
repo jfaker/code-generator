@@ -32,9 +32,9 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.InputSource;
 
-import com.skin.config.Parameter;
-import com.skin.database.sql.Column;
-import com.skin.database.sql.Table;
+import com.skin.generator.config.Parameter;
+import com.skin.generator.database.Column;
+import com.skin.generator.database.Table;
 
 /**
  * <p>Title: TemplateFactory</p>
@@ -101,7 +101,7 @@ public class TemplateParser {
             Table table = null;
             List<Template> templates = null;
             String encoding = element.getAttribute("encoding");
-
+            
             for(int i = 0, length = childNodes.getLength(); i < length; i++) {
                 Node node = childNodes.item(i);
                 int nodeType = node.getNodeType();
@@ -117,7 +117,7 @@ public class TemplateParser {
                     }
                 }
             }
-
+            
             tableDefinition.setEncoding(encoding);
             tableDefinition.setTable(table);
             tableDefinition.setTemplates(templates);
@@ -132,7 +132,7 @@ public class TemplateParser {
     }
 
     /**
-     * @param element
+     * @param node
      * @return Table
      */
     public static Table parseTable(Node node) {
@@ -208,7 +208,7 @@ public class TemplateParser {
     }
 
     /**
-     * @param file
+     * @param inputStream
      * @return List<Template>
      */
     public static List<Template> parseTemplates(InputStream inputStream) {
@@ -218,7 +218,6 @@ public class TemplateParser {
         catch(Exception e) {
             logger.warn(e.getMessage(), e);
         }
-
         return null;
     }
 
@@ -242,7 +241,7 @@ public class TemplateParser {
     }
 
     /**
-     * @param element
+     * @param node
      * @return List<Template>
      */
     public static List<Template> parseTemplates(Node node) {
@@ -329,7 +328,7 @@ public class TemplateParser {
 
         if(attributes != null) {
             Node item = attributes.getNamedItem(name);
-
+    
             if(item != null) {
                 return item.getTextContent();
             }

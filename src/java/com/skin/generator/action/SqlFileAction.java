@@ -21,14 +21,14 @@ import javax.servlet.ServletException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.skin.database.dialect.Dialect;
-import com.skin.database.dialect.MySQLDialect;
-import com.skin.database.sql.Column;
-import com.skin.database.sql.Table;
-import com.skin.database.sql.parser.CreateParser;
 import com.skin.generator.Template;
 import com.skin.generator.TemplateConfig;
 import com.skin.generator.TemplateParser;
+import com.skin.generator.database.Column;
+import com.skin.generator.database.Table;
+import com.skin.generator.database.dialect.Dialect;
+import com.skin.generator.database.dialect.MySQLDialect;
+import com.skin.generator.database.sql.parser.CreateParser;
 import com.skin.j2ee.action.BaseAction;
 import com.skin.j2ee.annotation.UrlPattern;
 import com.skin.j2ee.util.Response;
@@ -221,32 +221,32 @@ public class SqlFileAction extends BaseAction {
     }
 
     /**
-     * @param fileName
+     * @param filePath
      * @return String
      */
     public static String getSource(String filePath) {
         try {
             if(filePath.endsWith(".link.sql")) {
-                String content = IO.read(new File(filePath), "UTF-8", 4096);
+                String content = IO.read(new File(filePath), "UTF-8");
                 String[] list = content.split("\\n");
                 StringBuilder buffer = new StringBuilder();
-
+    
                 for(String line : list) {
                     line = line.trim();
-
+    
                     if(line.startsWith("#")) {
                         continue;
                     }
 
                     if(line.endsWith(".sql")) {
-                        String sql = IO.read(new File(line), "UTF-8", 4096);
+                        String sql = IO.read(new File(line), "UTF-8");
                         buffer.append(sql);
                     }
                 }
                 return buffer.toString();
             }
             else if(filePath.endsWith(".sql")) {
-                return IO.read(new File(filePath), "UTF-8", 4096);
+                return IO.read(new File(filePath), "UTF-8");
             }
             else {
                 return "";

@@ -1,0 +1,16 @@
+/build/classes
+/build/release
+/webapp/WEB-INF/tmp
+/webapp/WEB-INF/backup
+/webapp/gen
+/webapp/bak
+/webapp/h5
+/webapp/route
+/webapp/favicon.ico
+/webapp/tagTest.jsp
+/webapp/test.html
+/webapp/test1.html
+/webapp/test2.html
+/webapp/uploadTest.html
+/mydata
+/build

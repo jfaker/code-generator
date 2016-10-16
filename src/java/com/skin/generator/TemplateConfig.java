@@ -22,7 +22,7 @@ import java.util.List;
  */
 public class TemplateConfig {
     /**
-     * @param location
+     * @param path
      * @return List<String>
      */
     public static List<String> getTemplateConfigList(String path) {
@@ -41,7 +41,6 @@ public class TemplateConfig {
                 }
             }
         }
-
         return list;
     }
 }

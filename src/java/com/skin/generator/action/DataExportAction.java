@@ -26,15 +26,15 @@ import java.util.zip.ZipOutputStream;
 
 import javax.servlet.ServletException;
 
-import com.skin.config.ConnectionConfig;
-import com.skin.config.ConnectionConfigFactory;
-import com.skin.database.handler.TableHandler;
-import com.skin.database.sql.Table;
-import com.skin.datasource.ConnectionManager;
 import com.skin.exchange.CsvDataExport;
 import com.skin.exchange.DataExport;
 import com.skin.exchange.DefaultDataExport;
 import com.skin.exchange.SqlDataExport;
+import com.skin.generator.database.Table;
+import com.skin.generator.database.handler.TableHandler;
+import com.skin.generator.datasource.ConnectionConfig;
+import com.skin.generator.datasource.ConnectionConfigFactory;
+import com.skin.generator.datasource.ConnectionManager;
 import com.skin.j2ee.action.BaseAction;
 import com.skin.j2ee.annotation.UrlPattern;
 import com.skin.j2ee.util.Response;
@@ -138,6 +138,7 @@ public class DataExportAction extends BaseAction {
         catch(Throwable t) {
             t.printStackTrace();
         }
+
         Response.download(this.request, this.response, target.getName(), target);
     }
 
@@ -151,14 +152,15 @@ public class DataExportAction extends BaseAction {
             return new DefaultDataExport(connection);
         }
 
-        if(format.equals("xcsv")) {
-            return new DefaultDataExport(connection);
+        if(format.equals("sql")) {
+            return new SqlDataExport(connection);
         }
 
         if(format.equals("csv")) {
             return new CsvDataExport(connection);
         }
-        return new SqlDataExport(connection);
+
+        return new DefaultDataExport(connection);
     }
 
     /**
@@ -183,7 +185,7 @@ public class DataExportAction extends BaseAction {
 
     /**
      * @return File
-     * @throws IOException
+     * @throws IOException 
      */
     public File getTarget() throws IOException {
         File target = null;

@@ -16,12 +16,12 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.List;
 
-import com.skin.config.ConnectionConfig;
-import com.skin.config.ConnectionConfigFactory;
-import com.skin.database.handler.TableHandler;
-import com.skin.database.sql.Table;
-import com.skin.datasource.ConnectionManager;
 import com.skin.generator.TableType;
+import com.skin.generator.database.Table;
+import com.skin.generator.database.handler.TableHandler;
+import com.skin.generator.datasource.ConnectionConfig;
+import com.skin.generator.datasource.ConnectionConfigFactory;
+import com.skin.generator.datasource.ConnectionManager;
 import com.skin.j2ee.action.BaseAction;
 import com.skin.j2ee.annotation.UrlPattern;
 import com.skin.j2ee.util.Response;
@@ -36,9 +36,7 @@ import com.skin.util.HtmlUtil;
  */
 public class ConnectionAction extends BaseAction {
     /**
-     * @param request
-     * @param response
-     * @throws IOException
+     * @throws IOException 
      */
     @UrlPattern("/database/getDatabaseXml.html")
     public void getDatabaseXml() throws IOException {
@@ -49,7 +47,7 @@ public class ConnectionAction extends BaseAction {
         if(connectionConfigList != null && connectionConfigList.size() > 0) {
             for(ConnectionConfig connectionConfig : connectionConfigList) {
                 String connectionName = HtmlUtil.encode(connectionConfig.getName());
-
+                
                 buffer.append("<treeNode");
                 buffer.append(" title=\"");
                 buffer.append(connectionName);
@@ -120,9 +118,7 @@ public class ConnectionAction extends BaseAction {
     }
 
     /**
-     * @param request
-     * @param response
-     * @throws IOException
+     * @throws IOException 
      */
     @UrlPattern("/database/getTableXml.html")
     public void getTableXml() throws IOException {

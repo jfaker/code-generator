@@ -18,8 +18,6 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 /**
  * <p>Title: RouteFilter</p>
@@ -31,22 +29,30 @@ import javax.servlet.http.HttpServletResponse;
 public class RouteFilter implements Filter {
     private String page;
 
-    public RouteFilter() {
-    }
-
+    /**
+     * @param filterConfig
+     * @throws ServletException
+     */
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
         this.page = filterConfig.getInitParameter("page");
     }
 
+    /**
+     * @param servletRequest
+     * @param servletResponse
+     * @param filterChain
+     * @throws IOException
+     * @throws ServletException
+     */
     @Override
-    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws ServletException, IOException {
-        if(!(servletRequest instanceof HttpServletRequest) || !(servletResponse instanceof HttpServletResponse)) {
-            throw new ServletException("TemplateFilter just supports HTTP requests");
-        }
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         servletRequest.getRequestDispatcher(this.page).forward(servletRequest, servletResponse);
     }
 
+    /**
+     * destroy the filter
+     */
     @Override
     public void destroy() {
     }

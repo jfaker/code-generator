@@ -26,19 +26,19 @@ import javax.servlet.ServletException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.skin.config.ConnectionConfig;
-import com.skin.config.ConnectionConfigFactory;
-import com.skin.database.dialect.Dialect;
-import com.skin.database.dialect.MySQLDialect;
-import com.skin.database.handler.TableHandler;
-import com.skin.database.sql.Table;
-import com.skin.database.sql.parser.CreateParser;
-import com.skin.datasource.ConnectionManager;
 import com.skin.generator.GenericGenerator;
 import com.skin.generator.TableDefinition;
 import com.skin.generator.Template;
 import com.skin.generator.TemplateConfig;
 import com.skin.generator.TemplateParser;
+import com.skin.generator.database.Table;
+import com.skin.generator.database.dialect.Dialect;
+import com.skin.generator.database.dialect.MySQLDialect;
+import com.skin.generator.database.handler.TableHandler;
+import com.skin.generator.database.sql.parser.CreateParser;
+import com.skin.generator.datasource.ConnectionConfig;
+import com.skin.generator.datasource.ConnectionConfigFactory;
+import com.skin.generator.datasource.ConnectionManager;
 import com.skin.j2ee.action.BaseAction;
 import com.skin.j2ee.annotation.UrlPattern;
 import com.skin.j2ee.util.Response;
@@ -54,8 +54,8 @@ public class GeneratorAction extends BaseAction {
     private static Logger logger = LoggerFactory.getLogger(GeneratorAction.class);
 
     /**
-     * @param request
-     * @param response
+     * @throws IOException
+     * @throws ServletException
      */
     @UrlPattern({"/", "/generator/index.html", "/generator/frame.html"})
     public void frame() throws IOException, ServletException {
@@ -63,8 +63,8 @@ public class GeneratorAction extends BaseAction {
     }
 
     /**
-     * @param request
-     * @param response
+     * @throws IOException
+     * @throws ServletException
      */
     @UrlPattern("/generator/database.html")
     public void database() throws IOException, ServletException {
@@ -84,11 +84,11 @@ public class GeneratorAction extends BaseAction {
     }
 
     /**
-     * @param request
-     * @param response
+     * @throws IOException
+     * @throws ServletException
      */
     @UrlPattern("/generator/generate.html")
-    public void generate() throws IOException {
+    public void generate() throws IOException, ServletException {
         String xml = this.request.getParameter("tableDefinition");
 
         if(logger.isDebugEnabled()) {
@@ -133,11 +133,11 @@ public class GeneratorAction extends BaseAction {
     }
 
     /**
-     * @param request
-     * @param response
+     * @throws IOException
+     * @throws ServletException
      */
     @UrlPattern("/generator/batch.html")
-    public void batch() throws IOException {
+    public void batch() throws IOException, ServletException {
         String[] tableNames = this.request.getParameterValues("tableName");
         String fileName = this.request.getParameter("fileName");
         String templateConfig = this.request.getParameter("templateConfig");

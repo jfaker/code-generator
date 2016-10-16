@@ -31,12 +31,33 @@
         <filter-name>TemplateFilter</filter-name>
         <filter-class>com.skin.ayada.web.filter.TemplateFilter</filter-class>
         <init-param>
+            <param-name>name</param-name>
+            <param-value>templateFilter</param-value>
+        </init-param>
+        <init-param>
             <param-name>home</param-name>
             <param-value>contextPath:/template</param-value>
         </init-param>
         <init-param>
             <param-name>prefix</param-name>
             <param-value>/template</param-value>
+        </init-param>
+        <init-param>
+            <param-name>templateFactoryClass</param-name>
+            <param-value>com.skin.ayada.template.JspTemplateFactory</param-value>
+        </init-param>
+        <init-param>
+            <param-name>jspWork</param-name>
+            <param-value>contextPath:/WEB-INF/ayada</param-value>
+        </init-param>
+    </filter>
+
+    <filter>
+        <filter-name>RouteFilter</filter-name>
+        <filter-class>com.skin.route.filter.RouteFilter</filter-class>
+        <init-param>
+            <param-name>page</param-name>
+            <param-value>/route/index.html</param-value>
         </init-param>
     </filter>
 
@@ -59,6 +80,12 @@
         <url-pattern>/template/*</url-pattern>
         <dispatcher>FORWARD</dispatcher>
         <dispatcher>ERROR</dispatcher>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>RouteFilter</filter-name>
+        <url-pattern>/test/*</url-pattern>
+        <dispatcher>REQUEST</dispatcher>
     </filter-mapping>
 
     <listener>

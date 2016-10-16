@@ -29,6 +29,10 @@ import com.skin.j2ee.annotation.UrlPattern;
  * @version 1.0
  */
 public class TemplateAction extends BaseAction {
+    /**
+     * @throws ServletException
+     * @throws IOException
+     */
     @UrlPattern("/template/getTemplate.html")
     public void getTemplate() throws ServletException, IOException {
         String path = this.request.getParameter("path");

@@ -28,8 +28,8 @@ import org.slf4j.LoggerFactory;
 import com.skin.ayada.io.ChunkWriter;
 import com.skin.ayada.template.TemplateContext;
 import com.skin.ayada.template.TemplateManager;
-import com.skin.database.sql.Column;
-import com.skin.database.sql.Table;
+import com.skin.generator.database.Column;
+import com.skin.generator.database.Table;
 import com.skin.util.IO;
 
 /**
@@ -46,10 +46,17 @@ public class GenericGenerator implements Generator {
     private List<Template> templates;
     private static final Logger logger = LoggerFactory.getLogger(GenericGenerator.class);
 
+    /**
+     * default
+     */
     public GenericGenerator() {
         this.templates = new ArrayList<Template>();
     }
 
+    /**
+     * @param home
+     * @param work
+     */
     public GenericGenerator(String home, String work) {
         this.home = home;
         this.work = work;
@@ -79,6 +86,9 @@ public class GenericGenerator implements Generator {
         this.templates.addAll(templates);
     }
 
+    /**
+     * @param table
+     */
     @Override
     public void generate(Table table) throws Exception {
         this.generate(table, false);
@@ -114,6 +124,7 @@ public class GenericGenerator implements Generator {
     /**
      * @param table
      * @param template
+     * @param context
      * @throws Exception
      */
     public void generate(Table table, Template template, Map<String, Object> context) throws Exception {
@@ -136,8 +147,8 @@ public class GenericGenerator implements Generator {
 
     /**
      * @param path
-     * @param charset
      * @param context
+     * @return String
      */
     public String execute(String path, Map<String, Object> context) {
         ChunkWriter writer = new ChunkWriter(4096);
@@ -419,18 +430,5 @@ public class GenericGenerator implements Generator {
      */
     public void setEncoding(String encoding) {
         this.encoding = encoding;
-    }
-
-    public static void main(String[] args) {
-        TableDefinition tableDefinition = TemplateParser.parse(new File("webapp/definition.xml"));
-        GenericGenerator generator = new GenericGenerator();
-        generator.setTemplates(tableDefinition.getTemplates());
-
-        try {
-            generator.generate(tableDefinition.getTable());
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-        }
     }
 }

@@ -18,16 +18,16 @@ import java.util.List;
 
 import javax.servlet.ServletException;
 
-import com.skin.config.ConnectionConfig;
-import com.skin.config.ConnectionConfigFactory;
-import com.skin.database.handler.TableHandler;
-import com.skin.database.sql.Column;
-import com.skin.database.sql.Table;
-import com.skin.datasource.ConnectionManager;
 import com.skin.generator.TableType;
 import com.skin.generator.Template;
 import com.skin.generator.TemplateConfig;
 import com.skin.generator.TemplateParser;
+import com.skin.generator.database.Column;
+import com.skin.generator.database.Table;
+import com.skin.generator.database.handler.TableHandler;
+import com.skin.generator.datasource.ConnectionConfig;
+import com.skin.generator.datasource.ConnectionConfigFactory;
+import com.skin.generator.datasource.ConnectionManager;
 import com.skin.j2ee.action.BaseAction;
 import com.skin.j2ee.annotation.UrlPattern;
 
@@ -40,10 +40,8 @@ import com.skin.j2ee.annotation.UrlPattern;
  */
 public class TableAction extends BaseAction {
     /**
-     * @param request
-     * @param response
-     * @throws IOException
-     * @throws ServletException
+     * @throws IOException 
+     * @throws ServletException 
      */
     @UrlPattern("/table/list.html")
     public void list() throws IOException, ServletException {
